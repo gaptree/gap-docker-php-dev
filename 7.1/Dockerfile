@@ -29,7 +29,21 @@ RUN set -ex \
 && rm -rf /var/lib/apt/lists/*
 
 # PHP Extensions
-RUN set -ex &&  docker-php-ext-install mcrypt zip bz2 mbstring
+RUN set -ex &&  docker-php-ext-install mcrypt zip bz2 mbstring pdo pdo_mysql
+
+# PHP Extensions redis
+RUN set -ex \
+&& cd /tmp \
+&& git clone https://github.com/phpredis/phpredis phpredis \
+&& cd phpredis \
+
+&& phpize \
+&& ./configure \
+&& make \
+&& make install \
+&& cd / \
+&& rm -r /tmp/phpredis \
+&& docker-php-ext-enable redis
 
 # Composer packages
 RUN set -ex && sh ./install-composer.sh
