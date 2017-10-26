@@ -36,6 +36,7 @@ RUN set -ex \
 && cd /tmp \
 && git clone https://github.com/phpredis/phpredis phpredis \
 && cd phpredis \
+&& git checkout master \
 
 && phpize \
 && ./configure \

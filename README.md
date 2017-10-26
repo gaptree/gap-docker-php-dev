@@ -4,7 +4,7 @@
 
 ```
 $ cd 7.1
-$ docker build -t php-dev .
+$ docker build -t gap-php-dev .
 ```
 
 ## docker run
