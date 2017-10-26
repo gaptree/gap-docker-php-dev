@@ -32,9 +32,4 @@ RUN set -ex \
 RUN set -ex &&  docker-php-ext-install mcrypt zip bz2 mbstring
 
 # Composer packages
-RUN set -ex && sh ./install-composer.sh \
-&& composer global require \
-    phpunit/phpunit \
-    squizlabs/php_codesniffer \
-    phpmd/phpmd \
-    phpspec/phpspec
+RUN set -ex && sh ./install-composer.sh
